@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bookmark.models import Bookmark
+from .models import Bookmark
 
 @admin.register(Bookmark)
 class BookmarkAdmin(admin.ModelAdmin):
