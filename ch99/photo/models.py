@@ -1,11 +1,11 @@
 from django.db import models
 from django.urls import reverse
 
-from .fields import ThumnailImageField
+from .fields import ThumbnailImageField
 
 class Album(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.CharField('One Line Description', max_length=100, blank = True)
+    name = models.CharField('NAME', max_length=30)
+    description = models.CharField('One Line Description', max_length=100, blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -16,12 +16,13 @@ class Album(models.Model):
     def get_absolute_url(self):
         return reverse('photo:album_detail', args=(self.id,))
 
+
 class Photo(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     title = models.CharField('TITLE', max_length=30)
     description = models.TextField('Photo Description', blank=True)
-    image = ThumnailImageField(upload_to='photo/%Y/%m')
-    upload_dt = models.DateTimeField('Upload Date', auto_now_add=True)
+    image = ThumbnailImageField('IMAGE', upload_to='photo/%Y/%m')
+    upload_dt = models.DateTimeField('UPLOAD DATE', auto_now_add=True)
 
     class Meta:
         ordering = ('title',)
@@ -31,3 +32,4 @@ class Photo(models.Model):
 
     def get_absolute_url(self):
         return reverse('photo:photo_detail', args=(self.id,))
+
