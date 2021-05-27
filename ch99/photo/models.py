@@ -3,6 +3,7 @@ from django.urls import reverse
 
 from .fields import ThumbnailImageField
 
+
 class Album(models.Model):
     name = models.CharField('NAME', max_length=30)
     description = models.CharField('One Line Description', max_length=100, blank=True)

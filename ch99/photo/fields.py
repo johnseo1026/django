@@ -1,6 +1,8 @@
 import os
 from PIL import Image
-from django.db.models.fields.files import ImageField, ImageFieldFile
+from django.db.models import ImageField
+from django.db.models.fields.files import ImageFieldFile
+
 
 class ThumbnailImageFieldFile(ImageFieldFile):
     def _add_thumb(self, s):
