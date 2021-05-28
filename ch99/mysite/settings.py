@@ -132,6 +132,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#LOGIN_URL = 'accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
 TAGGIT_CASE_INSENSITIVE = True
 TAGGIT_LIMIT = 50
 
@@ -150,5 +153,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
+    'widget_tweaks'
     'photo.apps.PhotoConfig',
 ]
